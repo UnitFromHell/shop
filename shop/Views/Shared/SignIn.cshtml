@@ -1,0 +1,32 @@
+﻿@model shop.Models.LoginModel
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторизация</title>
+    <link  href="~/css/au.css" rel="stylesheet">
+</head>
+<body>
+    @if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger">
+        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+    </div>
+}
+    <form class="Enter" asp-action="SignIn" asp-controller="home">
+    <h1 class="titile">Авторизация</h1>
+        <div class="Enter1">
+            <input class="E-mail" type="text" asp-for="Login" placeholder="Введите логин">
+            <input class="Password1" type="password" asp-for="Password" placeholder="Введите пороль">   
+         <button>Войти</button>
+              
+        </div>
+             
+            @Html.ActionLink("Регистрация","SignUp")<br> 
+          
+     </form>
+  
+
+</body>
+</html>

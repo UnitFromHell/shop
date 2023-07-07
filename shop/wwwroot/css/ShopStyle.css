@@ -1,0 +1,103 @@
+
+.head{
+    position: relative;
+    top: 40%;
+}
+#head {
+    background-image: url("heade.jpg");
+
+top: 30%;
+
+left: 35%;
+
+right: 20%;
+
+bottom: 70%;
+
+text-transform: uppercase;
+
+color: white;
+background-size: cover;
+width: 1550px;
+height: 250px;
+
+padding: 10px;
+
+text-align: center;
+
+font: bold 30px/40px Helvetica, Sans-Serif;
+}
+body{
+margin: 0px;
+padding: 0px;
+background-color: white;
+
+}
+nav {
+margin: -4px;
+padding: 0px;
+font-family: 'Times New Roman', Times, serif;
+font-size: 20px;
+background-color: greenyellow;
+
+}
+nav ul{
+margin: 0px;
+padding:0px ;   
+
+}
+nav li{
+margin: 0px;
+display: inline;
+list-style-type: none;
+padding: 43px;
+font-family: 'Times New Roman', Times, serif;
+font-size: 25px;
+}
+a::after{
+content: "   |";    
+}
+a::before{
+content: "|   ";
+}
+a{
+color: black;
+text-decoration: none;    
+}
+a:hover{
+color: red;
+}
+.MS{
+opacity: 0.8;
+}
+div#head2{
+margin: 4px;
+margin-left:0px ;
+    position: relative;
+    
+    }
+    .head2 {
+
+    position: absolute;
+    
+    top: 20%;
+    
+    left: 37%;
+    
+    right: 20%;
+    
+    bottom: 50%;
+    
+    text-transform: uppercase;
+    
+    color: white;
+    
+    width: 350px;
+    
+    padding: 10px;
+    
+    text-align: center;
+    
+    font: bold 40px/50px Helvetica, Sans-Serif;
+    
+    }

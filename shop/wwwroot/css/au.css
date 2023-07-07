@@ -1,0 +1,54 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+
+.Enter1{
+    display: flex;
+    flex-direction: column;
+    height:auto;
+}
+
+.Enter{
+    height: auto;
+    width: 300px;
+    margin: 0px auto;
+    text-align: center;
+    padding-top: 180px;
+    background-color: rgb(0, 0, 0, 0.5);
+    padding: 50px;
+}
+
+input{
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    padding: 10px;
+    margin-top: 10px;
+    
+}
+
+.titile{
+    color: rgb(255, 242, 2);
+    font-size: 30px;
+    text-align: center;
+}
+
+button{
+    margin-top: 10px;
+    padding: 10px;
+    color: yellow;
+    background-color: rgb(255, 0, 170);
+    border-radius: 10px;
+    border: 4px dotted rgb(24, 226, 20);
+}
+body {
+    background-image: url(/imgs/BG.jpg);
+    background-size: 100% 100%;
+}
+a{
+color: yellow;
+text-decoration: none;
+font-size: 20px;
+}

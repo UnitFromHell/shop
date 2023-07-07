@@ -1,0 +1,139 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@{
+    //Layout = null;
+}
+@using System.Web;
+
+@model  shop.Models.Basket;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/css/basket.css" rel ="stylesheet" />
+   <link href="~/lib/bootstrap/dist/css/bootstrap-grid.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+   <link href="~/lib/bootstrap/dist/js/bootstrap.min.js" />
+   <link href="~/lib/bootstrap/dist/css/bootstrap.css" />
+   <link href="~/lib/bootstrap/dist/css/bootstrap-grid.css" />
+   <link href="~/lib/bootstrap/dist/css/bootstrap-reboot.css" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap-utilities.css" />
+    <title>корзина</title>
+    <link rel="stylesheet" href="basket.css">
+  
+</head>
+    <body>
+        <header> 
+    <div id="head">
+        <div class="col-md-12 ">Магазин спорт товаров SportWorld</div>
+        <blockquote class="blockquote">
+            <p class="citata">Движение - это жизнь ©Арситотель (греческий философ)</p>
+        </blockquote>
+    </div>
+        </header>
+      
+      <nav class="navbar navbar-expand-md navbar-expand-md bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand special-link" href="/Home/Index">Футболки</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Переключатель навигации">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand special-link" href="/Home/Shorts">Шорты</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Переключатель навигации">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand special-link" href="/Home/Sneakers">Кроссовки</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Переключатель навигации">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand special-link" href="/Home/Ball">Мячи</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Переключатель навигации">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand special-link" href="/Home/Basket">Корзина</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Переключатель навигации">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand special-link"  href="@Url.Action("Logout")">Выход</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Переключатель навигации">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          
+    </div>
+    </nav>
+     @if (Model.CartLines.Count == 0)
+        {
+            <p>Нет товаров</p>
+        }
+   
+       
+        else
+        {
+             <div class="container">
+        <h2>Корзина</h2>
+        <table class = "table">
+    <thead>
+        <tr>
+            <th>Название</th>
+            <th>Изображение</th>
+            <th>Цена</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+          @for(int i = 0; i < Model.CartLines.Count; i++)
+            {
+                <tr>
+                        <td>@Model.CartLines[i].ProductName</td>
+                       <td> <img class="tovar" src="@Model.CartLines[i].Image" alt="картинка не загрузилась" /></td>
+                       <td>@Model.CartLines[i].ProductCost</td>
+                        <td><a href="/Home/RemoveFromCart?Number=@i" class="btn btn-danger">
+                        Убрать из корзины    
+                        </a></td>
+                    
+                </tr>
+            }
+            
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3">Всего: @Model.FinalCost руб.</td>
+            <td><a href="/Home/RemoveAllFromCart" class="btn btn-danger">Очистить корзину</a></td>
+        </tr>
+    </tfoot>
+          
+            </table>
+    </div>
+        }
+     
+     
+</body>
+</html>
+  @*<h2>Корзина</h2>
+    <div>
+        @if (Model.CartLines.Count == 0)
+        {
+            <p>Нет товаров</p>
+        }
+        else
+        {
+            @for(int i = 0; i < Model.CartLines.Count; i++)
+            {
+                <ul>
+                    <li>
+                        <img class="tovar" src="@Model.CartLines[i].Image" alt="картинка не загрузилась" >
+                        <p>@Model.CartLines[i].ProductName</p>
+                        <a href="/Home/RemoveFromCart?Number=@i">
+                        Убрать из корзины    
+                        </a>
+                    </li>
+                </ul>
+            }
+            <p>@Model.FinalCost руб.</p>
+        }
+         <a href="/Home/RemoveAllFromCart">Очистить корзину</a>
+    </div>*@

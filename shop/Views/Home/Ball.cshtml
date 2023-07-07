@@ -1,0 +1,164 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@{
+    //Layout = null;
+}
+@model  IEnumerable<shop.Models.Product>;
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/css/T-Shirts.css" rel ="stylesheet" />
+   <link href="~/lib/bootstrap/dist/css/bootstrap-grid.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+   <link href="~/lib/bootstrap/dist/js/bootstrap.min.js" />
+   <link href="~/lib/bootstrap/dist/css/bootstrap.css" />
+   <link href="~/lib/bootstrap/dist/css/bootstrap-grid.css" />
+   <link href="~/lib/bootstrap/dist/css/bootstrap-reboot.css" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap-utilities.css" />
+    <title>Мячи</title>
+   
+</head>
+<body>
+    
+        <header> 
+            <div id="head">
+                <div class="col-md-12 ">Магазин спорт товаров SportWorld</div>
+                <blockquote class="blockquote">
+                    <p class="citata">Движение - это жизнь ©Арситотель (греческий философ)</p>
+                  </blockquote>
+            </div>
+        
+        </header>
+   <nav class="navbar navbar-expand-md navbar-expand-md bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/Home/Index">Футболки</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Переключатель навигации">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand" href="/Home/Shorts">Шорты</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Переключатель навигации">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand" href="/Home/Sneakers">Кроссовки</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Переключатель навигации">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand" href="/Home/Ball">Мячи</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Переключатель навигации">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand" href="/Home/Basket">Корзина</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Переключатель навигации">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand"  href="@Url.Action("Logout")">Выход</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Переключатель навигации">
+            <span class="navbar-toggler-icon"></span>
+          </button> 
+    </div>
+    </nav>
+<div id="head2">
+    <section>
+  <div class="container-fluid">
+    <div class="row row-cols-1 row-cols-md-4 g-4 mt-0 justify-content-center">
+      @foreach(Product product in Model){
+        if(product.TypeProductId == 3){
+          <div class="col">
+            <div class="card h-100">
+              <div class="zoom">
+                <img width="178" height="170" data-toggle="magnify" src="@product.Image" alt="@product.ProductName">
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h4 class="card-title">@product.ProductName - <br>@product.ProductCost руб.</h4>
+                <a href="/Home/AddToCart?ID=@product.IdProduct" class="mt-auto btn btn-primary">Купить</a>
+              </div>
+            </div>
+          </div>
+        }
+      }
+    </div>
+  </div>
+</section>
+</div>
+</body>
+</html>
+    @* <div class="zoom">
+                    <img width="178" height="170" data-toggle="magnify" src="/imgs/StarBall.jpg" alt="Кроссовки BIOM B ECCO">
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                      <h4 class="card-title">Мяч футбольный Larsen Stars - <br>1659 руб.</h4>
+                      <p class="card-text"> Клееные швы: да;<br>
+                        Материал верха: полиуретан;<br>
+                        Камера: резина с бутиловым ниппелем, 60-65 г;<br>
+                        Размер: 5.</p>
+                      <a  href="basket.html" class="mt-auto btn btn-primary ">Купить</a>
+                    </div>*@
+               @*   </div>
+              </div>*@
+              @*<div class="col">
+              <div class="card mx-auto h-100" style="width: 18rem;">
+                   <div class="zoom">
+                <img width="178" height="170" data-toggle="magnify" src="/imgs/Bascket.jpg" alt="Кроссовки BIOM B ECCO">
+               </div>
+                <div class="card-body d-flex flex-column">
+                  <h4 class="card-title">Баскетбольный мяч Molten B7R -<br> 1089  руб.</h4>
+                  <p class="card-text"> Материал: резина;<br> назначение: для улицы и зала.</p>
+                  <a  href="basket.html" class="mt-auto btn btn-primary ">Купить</a>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card mx-auto h-100" style="width: 18rem;">
+                   <div class="zoom">
+                <img width="178" height="170" data-toggle="magnify" src="/imgs/volleyball.jpg" alt="Кроссовки Nike x OFF-White Air Force 1 Low">
+                </div>
+                <div class="card-body d-flex flex-column">
+                  <h4 class="card-title">Мяч для пляжного волейбола MIKASA -<br> 8199 руб.</h4>
+                  <p class="card-text"> Профессиональный мяч для пляжного волейбола.</p>
+                  <a href="basket.html" class="mt-auto btn btn-primary">Купить</a>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card mx-auto h-100 col-md-12"  style="width: 18rem;">
+                   <div class="zoom">
+                <img width="178" height="170" data-toggle="magnify" src="/imgs/Ball1.jpg" class="card-img-top" alt="Белая футболка"/>
+                </div>
+                <div class="card-body d-flex flex-column">
+                  <h4 class="card-title"> Мяч футбольный Adidas Team Top Replique  -<br> 2900 руб.</h4>
+                  <p class="card-text">
+                     Правильная траектория полета, лучший контроль и влагопоглощение мяча.</p>
+                  <a href="basket.html" class="mt-auto btn btn-primary">Купить</a>
+                </div>
+                
+              </div>
+            </div>
+            <div class="col">
+              <div class="card mx-auto h-100" style="width: 18rem;">
+                   <div class="zoom">
+                <img width="178" height="170" data-toggle="magnify" src="/imgs/Ball2.jpg" class="card-img-top" alt="Черная футболка Addidas Standart Tee">
+                </div>
+                <div class="card-body d-flex flex-column">
+                  <h4 class="card-title"> Баскетбольный мяч Larsen RB (ECE), р. 7 оранжевый - <br>599 руб.</h4>
+                  <p class="card-text">материал: резина; <br>назначение: для улицы; <br> размер: 7.</p>
+                  <a href="basket.html" class="mt-auto btn btn-primary">Купить</a>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card mx-auto h-100" style="width: 18rem;">
+                   <div class="zoom">
+                <img width="178" height="170" data-toggle="magnify" src="/imgs/Ball3.jpg" class="card-img-top" alt="Футболка Месси">
+                </div>
+                <div class="card-body d-flex flex-column">
+                  <h4 class="card-title">Мяч волейбольный Larsen VB-ECE-5000B - 1790 руб.</h4>
+                  <p class="card-text">
+                    Размер: 5;<br> Вес: 250–280 г;<br> Материал верха - Полиуретан.</p>
+                  <a href="basket.html" class="mt-auto btn btn-primary">Купить</a>
+                </div>
+              </div>
+            </div>*@

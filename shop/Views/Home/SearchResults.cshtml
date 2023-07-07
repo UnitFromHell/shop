@@ -1,0 +1,17 @@
+﻿@model List<Product>
+
+<h2>Результаты поиска</h2>
+
+@if (Model.Any())
+{
+    <ul>
+    @foreach (var product in Model)
+    {
+        <li>@product.ProductName</li>
+    }
+    </ul>
+}
+else
+{
+    <p>Ничего не найдено.</p>
+}
